@@ -1,0 +1,99 @@
+<router-outlet> içeriğin görünmesi için eklenir..
+
+install - npm install -g @angular/cli 
+
+ng new angular-tour-of-heroes
+
+uygulamayı başlatma ......
+ng serve -o
+
+ng  g c --skip-tests
+
+npm i bootstrap
+
+shift+alt + >>       satırı koplayama
+
+//Servisler @Injectabkle decarator  ile servis oldugu anlasılır eger AppModule ->providers: da bu servis eklenirse
+veya {app:root} verilirse servis icinde gloabal oldugu yani uygulama calıstıgında bir defa instance olusur ve tüm kullnanan komponentler
+bu sevisi kullanır
+@ınjectable yapılmayan sevis sınfları app.module dosyasında providers: olarak tanımlanmalı
+
+
+eger local bir servis kullanılacaksa yani sadece ilgili component iicn sadece gerekli ise @component icersisinde
+ {
+	providers:[AlertService]
+ }
+olarak verilmeli(instance olusurur) yine constrancter injection olarak kullanılabilir
+
+Cannot find module 'rxjs/Observable' or its corresponding type declarations. -> npm install --save rxjs-compat
+
+
+reactiove form object submit ekleme ()
+if(this.productAddForm.valid)
+  this.product = Object.assign({},this.productAddForm.value)
+
+
+Object.assign -> nesnelerin birbirelri üzerinde kopyalanmasını saglar
+
+ng g i models/contryDropMenu
+
+eklenen servis sınıfının kullanılabilmesi için 2 yol :
+1: servis sınıfı @Injectable ile sınıfın üstünde belirtilmeli 
+2. app.module sınıfında provider:[HelpService] şeklinde eklenmeli
+
+
+module : içerisinde:component,directive,pipe,servisleri barındıran yapı / app.module dısındaki eklenn modullere feature module denir
+
+
+vs code kısa yol arayüzü:
+
+ctrl K + ctrl S
+vs code comment   :
+ctrl K + ctrl C
+vs code comment geri alma :
+ctrl K + ctrl U
+
+
+bootrrap dropdown workking :
+npm install --save bootstrap@3
+npm install --save popper.js angular-popper
+npm install jquery --save
+
+
+or add index.html file :
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+Observables
+npm install --save rxjs@6
+
+npm install --save rxjs-compat
+
+
+
+ng g p  test  -> ng generate pipe test
+----------
+[formControlName]="'username'"
+formControlName="username"    -iki kullanımda aynı seye denk geliyor
+----------
+
+
+
+
+Directives
+
+* directive'ler componentlere cok benzerler.Ama bir templateleri yoktur.
+* Directive'ler view'leri olmayan componentlerdir.
+* DOM nesnelerine yeni özellik kazandırırlar.
+* @Directive decoreator' ı kullanır
+* Bir selector e sahip olmalıdır
+  Component
+-View      -
+-Directive -
+------------
+Types
+ * structural directies
+ * attiribute directives

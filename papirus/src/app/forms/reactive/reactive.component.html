@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form (ngSubmit)="register()" [formGroup]="loginForm">
+            <div class="mb-3">
+                <label for="userName" class="form-label">User Name</label>
+                <input type="text" 
+                       formControlName="userName"
+                       class="fomr-control">
+            </div>
+            <div class="alert alert-danger"
+                 *ngIf="isInvalidMessageShow('userName')">
+                <small *ngIf="loginForm.get('userName')?.errors?.['required']">Kullanıcı Alanı zorunlu</small>
+            </div>
+            <div class="alert alert-info">
+                <ul>
+                    <li>Valid : {{loginForm.get("userName")?.valid}}</li>
+                    <li>InValid : {{loginForm.get("userName")?.invalid}}</li>
+                    <li>Errors : {{loginForm.get("userName")?.errors | json}}</li>
+                    <li>Pristine : {{loginForm.get("userName")?.pristine}}</li>
+                    <li>touched : {{loginForm.get("userName")?.touched}}</li>
+                    <li>Dirty : {{loginForm.get("userName")?.dirty}}</li>
+                    <li>Value : {{loginForm.get("userName")?.value}}</li>
+                </ul>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" 
+                       formControlName="password"
+                       [ngClass]="{invalidRed:isValid('password'),validGreen:isSuccessValid('password')}"
+                       class="fomr-control">
+
+            </div>
+            <div class="alert alert-danger"
+                 *ngIf="isInvalidMessageShow('password')">
+                <small *ngIf="loginForm.get('password')?.errors?.['required']">şifre Alanı zorunlu</small>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" formControlName="rememberMe">
+                <label for="flexCheckDefault" class="form-check-label">
+                    Beni Hatırla
+                </label>
+            </div>
+
+            <label for="country" class="form-label">Ülke:</label>
+            <select   formControlName="country" class="fomr-select" >
+                <option value="" >Seçiniz</option>
+                <option value="item.value" *ngFor="let item of countryMenu" >{{item.text}}</option>
+            </select>
+
+            <div *ngFor="let gender of genderRadioMenu">
+                <div class="form-check">
+                    <input type="radio"
+                           class="form-check-input" 
+                           [value]="gender.value"
+                           formControlName="genderItem"
+                           >
+                    <label class="form-check-label" for="flexCheckDefault">{{gender.text}}</label>       
+                </div>
+            </div>
+
+
+            <div class="">
+                <label for="birtDate">Doğum Tarihi</label>
+                <input class="fomr-control" type="date" formControlName="birtDate">
+            </div>
+            <button type="submit">Kaydet</button>
+        </form>
+    </div>
+</div>

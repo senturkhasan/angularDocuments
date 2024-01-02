@@ -1,0 +1,9 @@
+<p>first-page works!</p>
+<div class="container">
+
+    <p [ngClass]="{'current-active':'isActive()'}">Custom css Example</p>
+    <button (click)="pageRedirect('second-page')" 
+            class="btn btn-success">Second Page</button>
+    <button (click)="changeQueryParams()" 
+            class="btn btn-danger">Change Query</button>        
+  </div>

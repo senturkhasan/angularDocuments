@@ -1,0 +1,11 @@
+observable -> akış
+observer -> akısa giren abone;
+giren her abonennin tipi bağımsız olablir
+
+Subject:özelleştiirlmis observable
+
+subjectBehavior: akısa bir onceki subjectten baslayarak abone olur
+ReplySubject n. akısından once veriyi alarak girer
+
+Async akıştaki son değeri getirir.
+Bunu anlayabilimesi icin complete() fonksiyonunu tetiklenmesini bekler

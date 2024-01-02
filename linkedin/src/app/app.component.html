@@ -1,0 +1,66 @@
+<h4>Header Example !!</h4>
+
+
+<p [textContent]="title">BU alan eziliyor</p>
+
+<p textContent="title">Yukarıda içerik ile aynı </p>
+
+<p appFavoriteDirective="">Directive deneme</p>
+
+
+
+<label for="Template">Template Form</label>
+<form #mediaItemForm="ngForm"
+      (ngSubmit)="onSubmit(mediaItemForm.value)">
+<ul>
+  <li>
+    <label for="medium">Medium</label>
+    <select name="medium" id="medium" ngModel>
+      <option value="Movies">Movies</option>
+      <option value="Series">Series</option>
+    </select>
+  </li>
+  <li>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" ngModel>
+  </li>
+  <li>
+    <label for="category">Category</label>
+    <select name="category" id="category" ngModel>
+      <option value="Action">Action</option>
+      <option value="Drama">Drama</option>
+    </select>
+  </li>
+</ul>
+
+<button type="submit">Save</button>
+</form>
+
+<ul>
+  <li *ngFor="let item of mediaItems">{{item.title}}</li>
+</ul>
+
+<!--
+
+<app-detail  *ngFor ="let mediaItem of mediaItems" 
+             [mediaItemWatch]="mediaItem"  
+             (delete)="onMediaItemDelete($event)"></app-detail>
+
+-->
+
+<h4>items</h4>
+<ul *ngFor="let item of mediaItems">
+<li>{{item.title}}</li>
+</ul>
+
+<h4>items end</h4>
+<a routerLink="add"><p>Ekleme link</p></a>
+<app-detail  [mediaItemWatch]="mediaItems [0]"  
+             (delete)="onMediaItemDelete($event)"></app-detail>
+
+
+<!--
+
+<router-outlet></router-outlet>
+-->
+

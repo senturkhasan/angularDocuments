@@ -1,0 +1,13 @@
+
+<input type="text" [(ngModel)]="filterStatus">
+<br>
+<p>app status : {{appStatus |async }} </p>
+<ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let pi of pipeList | filter:filterStatus :'status'"
+        [ngClass]="getStatusClasses(pi)">
+    <span class="badge">{{ pi.status}}</span>
+    <strong>{{pi.name | shorten:15}}</strong>|
+    {{pi.createdDate |date :'fullDate' | uppercase}}
+    </li>
+</ul>
