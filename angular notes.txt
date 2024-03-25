@@ -97,3 +97,9 @@ Directives
 Types
  * structural directies
  * attiribute directives
+
+
+ng generate module contact-module  
+ng generate component contact-app -m contact-module 
+
+ikisi ilşkilendirilir

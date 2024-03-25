@@ -1,0 +1,17 @@
+<div *ngIf ="wishes.length ===2 ;else showItems">
+
+</div>
+<ng-template #showItems>
+    
+      
+    <div class="row mt-3">
+      <ul class="wish-list">
+        <app-wish-list-item 
+          *ngFor="let wish of wishes"
+          [wish]="wish"
+        ></app-wish-list-item>
+         
+      </ul>
+    </div>
+
+ </ng-template>
